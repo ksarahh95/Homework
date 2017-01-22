@@ -1,0 +1,61 @@
+Week 2 Homework
+
+Question 1:
+Rodentia, Rodentia, Rodentia, Macroscelidea, Rodentia
+
+Question 2: There are 28 unique families.
+Afrosoricida
+Carnivora
+Cetartiodactyla
+Chiroptera
+Cingulata
+Dasyuromorphia
+Dermoptera
+Didelphimorphia
+Diprotodontia
+Eulipotyphla
+Eulyplotiphla
+Hyracoidea
+Lagomorpha
+Macroscelidea
+Microbiotheria
+Monotremata
+Notoryctemorphia
+Paucituberculata
+Peramelemorphia
+Perissodactyla
+Pholidota
+Pilosa
+Primates
+Proboscidea
+Rodentia
+Scandentia
+Sirenia
+Tubulidentata
+
+Question 3: see screenshot attached to repo.
+
+Question 4:
+10th largest species: Cetartiodactyla Balaenidae Eubalaena Eubalaena glacialis
+10th smallest species: Chiroptera Vespertilionidae Pipistrellus Pipistrellus nanulus
+
+Question 5: see screenshot attached to repo.
+
+Question 6: 
+Size: 533 kilobytes
+21 contigs
+43 isogroups
+contig00302; numreads = 3330
+
+Question 7:
+cp n{1..59}.txt ../../sandbox/temp
+
+Question 8:
+Using grep: grep "of" haiku.txt
+find Pipeline Reading Comprehension: gives us a list of all dat files in or below the current directory and sorts by number
+Matching/Subtracting: grep -v "temp" $(find/data -name '*ose.dat')
+Tracking a Species: grep -w$1 -r$2 | cut -d, -f 1,3 | cut -d: -f 2 > $1.txt
+Little Women: grep four\.t\sisters Littlewomen.txt
+Finding Files with Different Properties: $ find ./ -type f -mtime -1 -user ahmed
+
+
