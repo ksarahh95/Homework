@@ -1,0 +1,28 @@
+Homework Answers:
+
+Question 1: (Allesina and Wilmes 1.11.2.)
+1. Individual 3 was recorded 61 times and individual 27 was recorded 5 times.
+2. #! /bin/bash
+   bash count_baboons.sh ../data/Gesquiere2011_data.csv27
+3. #! /bin/bash
+   tail -n +2 ../data/Gesquiere2011_data.csv | cut -f 1 | sort -n | uniq
+   myIDS = tail -n +2 ../data/Gesquiere2011_data.csv | cut -f 1 | sort -n | uniq
+   for id in $myIDS
+   do
+     mycounts='bash count_baboons.sh ../data/Gesquiere2011_data.csv$id'
+     echo "ID:" $id "counts:" $mycounts
+   done
+   bash count_all_baboons.sh
+
+Question 2: (Allesina and Wilmes 1.11.3.)
+1. #! /bin.bash
+   wc -1 ../data/Saavedra2013/n10.txt
+   cat ../data/Saavedra2013/n10.txt | wc -1
+   head -n 1 ../data/Saavedra2013/n10.txt | tr -d ' ' | wc -c
+2. FILES = ../data/Saavedra2013/*.txt
+   for f in $FILES
+   do
+     echo $f
+   done
+3. rows: bash netsize_all.sh | sort -n -r -k 3 | head -n 1
+   column: bash netsize_all.sh | sort -n -r -k 2 | head -n 1
