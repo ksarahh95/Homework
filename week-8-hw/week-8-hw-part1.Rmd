@@ -1,0 +1,43 @@
+---
+title: "week-8-hw-part1"
+output: html_notebook
+---
+```{r}
+library(ggplot2)
+setwd("/home/eeb177-student/Desktop/eeb-177/homework/week-8-hw/")
+canid <- read.csv("/home/eeb177-student/Desktop/eeb-177/homework/week-8-hw/canids_3.csv", header = F, as.is = T)
+names(canid) <- c("occurrence_no", "record_type", "reid_no", "flags", "collection_no", "accepted_name", "accepted_rank", "accepted_no", "early_interval", "late_interval", "max_ma", "min_ma")
+head(canid)
+
+canid_occ <- ggplot(canid, aes(accepted_name, ymax =max_ma, ymin=min_ma), color = accepted_rank)
+canid_occ <- canid_occ + geom_linerange()
+canid_occ
+```
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+canid_occ <- canid_occ + theme(legend.position="none")
+canid_occ
+canid_occ <- canid_occ + coord_flip()
+canid_occ
+canid_occ <- canid_occ +  theme(axis.text.y = element_text(size=3))
+canid_occ
+canid_occ <- canid_occ + theme(axis.ticks.y=element_blank())
+canid_occ
+canid_occ <- canid_occ + scale_y_continuous(limits=c(0, 40), expand = c(0, 0), breaks=c(0, 10, 20, 30, 40))
+canid_occ
+canid_occ <- canid_occ + labs(title = "Canid Fossil Occurrences", x = "Species", y = "Ma ago") + theme(plot.title = element_text(hjust = 0.5, size=22, face = "bold"), axis.title =element_text(size=20))
+canid_occ
+```
+
+```{r}
+# 211 unique species 
+# 614 unique genera 
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
