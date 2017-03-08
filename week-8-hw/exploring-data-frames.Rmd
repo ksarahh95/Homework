@@ -1,0 +1,47 @@
+---
+title: "Exploring data frames"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+    df <- data.frame(first = c('Grace'),
+                     last = c('Hopper'),
+                     lucky_number = c(0),
+                     stringsAsFactors = FALSE)
+    df <- rbind(df, list('Marie', 'Curie', 238) )
+    df <- cbind(df, coffeetime = c(TRUE,TRUE))
+
+
+gapminder <- read.csv("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv")
+str(gapminder)
+typeof(gapminder$year)
+typeof(gapminder$country)
+str(gapminder$country)
+length(gapminder)
+typeof(gapminder)
+nrow(gapminder)
+ncol(gapminder)
+dim(gapminder)
+colnames(gapminder)
+head(gapminder)
+
+download.file("https://raw.githubusercontent.com/swcarpentry/r-novice-gapminder/gh-pages/_episodes_rmd/data/gapminder-FiveYearData.csv", destfile = "data/gapminder-FiveYearData.csv")
+gapminder <- read.csv(file = "data/gapminder-FiveYearData.csv")
+source(file = "scripts/load-gapminder.R")
+
+
+#for challenge problem 3: gapminder object is columned data frame
+#factors are country/continent
+#year i - integer vector
+# numeric vectors = lifeExp, pop, gdpPercap
+
+
+```
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Ctrl+Shift+K* to preview the HTML file).
